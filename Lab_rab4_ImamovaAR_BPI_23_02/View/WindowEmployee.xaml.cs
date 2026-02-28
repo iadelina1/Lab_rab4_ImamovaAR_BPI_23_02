@@ -23,7 +23,7 @@ namespace Lab_rab4_ImamovaAR_BPI_23_02.View
         public WindowEmployee()
         {
             InitializeComponent();
-            this.DataContext = new PersonViewModel();
+            DataContext = new Lab_rab4_ImamovaAR_BPI_23_02.ViewModel.PersonViewModel();
         }
     }
 }

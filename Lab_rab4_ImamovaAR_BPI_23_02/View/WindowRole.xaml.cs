@@ -23,7 +23,7 @@ namespace Lab_rab4_ImamovaAR_BPI_23_02.View
         public WindowRole()
         {
             InitializeComponent();
-            this.DataContext = new RoleViewModel();
+            //this.DataContext = new RoleViewModel();
         }
     }
 }

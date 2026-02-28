@@ -1,5 +1,6 @@
-﻿using System.Windows;
-using Lab_rab4_ImamovaAR_BPI_23_02.View;
+﻿using Lab_rab4_ImamovaAR_BPI_23_02.View;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace Lab_rab4_ImamovaAR_BPI_23_02
 {
@@ -8,6 +9,24 @@ namespace Lab_rab4_ImamovaAR_BPI_23_02
         public MainWindow()
         {
             InitializeComponent();
+        }
+        private void OpenEmployee_Click(object sender, RoutedEventArgs e)
+        {
+            WindowEmployee win = new WindowEmployee();
+            win.Show();
+        }
+        private void OpenRole_Click(object sender, RoutedEventArgs e)
+        {
+            WindowRole win = new WindowRole();
+            win.Show();
+        }
+        private void ChangeTheme_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button btn && btn.Tag != null)
+            {
+                string themeFile = btn.Tag.ToString();
+                ((App)Application.Current).ChangeTheme(themeFile);
+            }
         }
     }
 }

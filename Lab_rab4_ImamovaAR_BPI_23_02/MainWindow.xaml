@@ -1,36 +1,31 @@
 ﻿<Window x:Class="Lab_rab4_ImamovaAR_BPI_23_02.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:vm="clr-namespace:Lab_rab4_ImamovaAR_BPI_23_02.ViewModel"
-        mc:Ignorable="d"
-        Title="Управление сотрудниками" Height="300" Width="500">
+        Title="Управление сотрудниками" Height="300" Width="650"
+        Background="{DynamicResource WindowBackgroundBrush}">
 
-    <Window.DataContext>
-        <vm:MainViewModel/>
-    </Window.DataContext>
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
-    <DockPanel>
-        <StackPanel DockPanel.Dock="Top" 
-                Orientation="Horizontal" 
-                Background="#F3F3F3" 
-                >
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-            <Button Content="Сотрудники" 
-                Command="{Binding OpenEmployeeWindowCommand}" 
-                Width="120" Height="40" 
-                Margin="5" 
-                Background="#E1E1E1"/>
+            <StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left">
+                <Button Content="Сотрудники" Click="OpenEmployee_Click" Width="120" Height="40" Margin="0,0,10,0"/>
+                <Button Content="Должности" Click="OpenRole_Click" Width="120" Height="40"/>
+            </StackPanel>
 
-            <Button Content="Должности" 
-                Command="{Binding OpenRoleWindowCommand}" 
-                Width="120" Height="40" 
-                Margin="5" 
-                Background="#E1E1E1"/>
-        </StackPanel>
-
-        <Grid Background="White">
+            <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Content="Светлая тема" Click="ChangeTheme_Click" Tag="LightTheme.xaml" Width="110" Height="30" Margin="5,0"/>
+                <Button Content="Темная тема" Click="ChangeTheme_Click" Tag="DarkTheme.xaml" Width="110" Height="30" Margin="5,0"/>
+            </StackPanel>
         </Grid>
-    </DockPanel>
+        <Grid Grid.Row="1"/>
+    </Grid>
 </Window>

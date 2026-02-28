@@ -2,69 +2,84 @@
 using Lab_rab4_ImamovaAR_BPI_23_02.Model;
 using Lab_rab4_ImamovaAR_BPI_23_02.View;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Windows;
-using System.Windows.Input;
 
 namespace Lab_rab4_ImamovaAR_BPI_23_02.ViewModel
 {
-    public class RoleViewModel
+    public class RoleViewModel : INotifyPropertyChanged
     {
         public ObservableCollection<Role> ListRole { get; set; }
-        public Role SelectedRole { get; set; }
 
-        public ICommand AddRoleCommand { get; }
-        public ICommand EditRoleCommand { get; }
-        public ICommand DeleteRoleCommand { get; }
+        private Role _selectedRole;
+        public Role SelectedRole
+        {
+            get => _selectedRole;
+            set
+            {
+                _selectedRole = value;
+                OnPropertyChanged("SelectedRole");
+            }
+        }
 
         public RoleViewModel()
         {
-            ListRole = new ObservableCollection<Role>();
-            ListRole.Add(new Role(1, "Директор"));
-            ListRole.Add(new Role(2, "Бухгалтер"));
-
-            DeleteRoleCommand = new RelayCommand(o =>
+            ListRole = new ObservableCollection<Role>
             {
-                if (SelectedRole != null)
-                {
-                    ListRole.Remove(SelectedRole);
-                }
-                else
-                {
-                    MessageBox.Show("Выберите должность для удаления");
-                }
-            });
+                new Role { Id = 1, NameRole = "Директор" },
+                new Role { Id = 2, NameRole = "Менеджер" },
+                new Role { Id = 3, NameRole = "Программист" }
+            };
+        }
 
-            AddRoleCommand = new RelayCommand(o =>
+        public string NewRoleName { get; set; }
+
+        private RelayCommand _addRole;
+        public RelayCommand AddRole => _addRole ?? (_addRole = new RelayCommand(obj =>
+        {
+            NewRoleName = "";
+            WindowNewRole win = new WindowNewRole();
+            win.DataContext = this;
+
+            if (win.ShowDialog() == true)
             {
-                WindowNewRole win = new WindowNewRole();
-                win.Title = "Новая должность";
-
-                if (win.ShowDialog() == true)
+                ListRole.Add(new Role
                 {
-                    int newId = ListRole.Count > 0 ? ListRole[ListRole.Count - 1].Id + 1 : 1;
-                    ListRole.Add(new Role(newId, win.tbRoleName.Text));
-                }
-            });
+                    Id = ListRole.Count + 1,
+                    NameRole = NewRoleName
+                });
+            }
+        }));
 
-            EditRoleCommand = new RelayCommand(o => {
-                if (SelectedRole != null)
+        private RelayCommand _editRole;
+        public RelayCommand EditRole => _editRole ?? (_editRole = new RelayCommand(obj =>
+        {
+            NewRoleName = SelectedRole.NameRole;
+
+            WindowNewRole win = new WindowNewRole();
+            win.DataContext = this;
+
+            if (win.ShowDialog() == true)
+            {
+                int index = ListRole.IndexOf(SelectedRole);
+                ListRole[index] = new Role
                 {
-                    WindowNewRole win = new WindowNewRole();
-                    win.tbRoleName.Text = SelectedRole.NameRole;
+                    Id = SelectedRole.Id,
+                    NameRole = NewRoleName
+                };
+            }
+        }, (obj) => SelectedRole != null));
 
-                    if (win.ShowDialog() == true)
-                    {
-                        int index = ListRole.IndexOf(SelectedRole);
-                        ListRole[index] = new Role(SelectedRole.Id, win.tbRoleName.Text);
-                    }
-                }
-
-                else
-                {
-                    MessageBox.Show("Выберите должность!");
-                }
-                
-            });
+        private RelayCommand _deleteRole;
+        public RelayCommand DeleteRole => _deleteRole ?? (_deleteRole = new RelayCommand(obj =>
+        {
+            ListRole.Remove(SelectedRole);
+        }, (obj) => SelectedRole != null));
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged([CallerMemberName] string prop = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
     }
 }

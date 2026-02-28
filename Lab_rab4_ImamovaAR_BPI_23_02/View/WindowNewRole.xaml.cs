@@ -1,16 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
 
 namespace Lab_rab4_ImamovaAR_BPI_23_02.View
 {
@@ -23,14 +11,7 @@ namespace Lab_rab4_ImamovaAR_BPI_23_02.View
 
         private void Accept_Click(object sender, RoutedEventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(tbRoleName.Text))
-            {
-                this.DialogResult = true;
-            }
-            else
-            {
-                MessageBox.Show("Введите название должности!", "Ошибка");
-            }
+            this.DialogResult = true;
         }
     }
 }
