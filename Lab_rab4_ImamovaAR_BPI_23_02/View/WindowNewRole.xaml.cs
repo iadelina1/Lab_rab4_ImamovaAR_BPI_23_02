@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace Lab_rab4_ImamovaAR_BPI_23_02.View
+namespace Lab_rab5_ImamovaAR_BPI_23_02.View
 {
     public partial class WindowNewRole : Window
     {

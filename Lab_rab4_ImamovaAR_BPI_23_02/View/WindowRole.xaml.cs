@@ -1,4 +1,4 @@
-﻿using Lab_rab4_ImamovaAR_BPI_23_02.ViewModel;
+﻿using Lab_rab5_ImamovaAR_BPI_23_02.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Lab_rab4_ImamovaAR_BPI_23_02.View
+namespace Lab_rab5_ImamovaAR_BPI_23_02.View
 {
     /// <summary>
     /// Логика взаимодействия для WindowRole.xaml

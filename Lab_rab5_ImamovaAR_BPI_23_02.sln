@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36511.14 d17.14
+VisualStudioVersion = 17.14.36511.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab_rab4_ImamovaAR_BPI_23_02", "Lab_rab4_ImamovaAR_BPI_23_02\Lab_rab4_ImamovaAR_BPI_23_02.csproj", "{53A520CA-8D82-4A73-9BFA-7AEA3E50A936}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab_rab5_ImamovaAR_BPI_23_02", "Lab_rab4_ImamovaAR_BPI_23_02\Lab_rab5_ImamovaAR_BPI_23_02.csproj", "{53A520CA-8D82-4A73-9BFA-7AEA3E50A936}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

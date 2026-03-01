@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace Lab_rab4_ImamovaAR_BPI_23_02.Model
+namespace Lab_rab5_ImamovaAR_BPI_23_02.Model
 {
     public class Role : INotifyPropertyChanged
     {
