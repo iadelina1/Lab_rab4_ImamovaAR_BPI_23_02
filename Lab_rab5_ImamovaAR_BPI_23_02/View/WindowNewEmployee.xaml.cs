@@ -17,25 +17,13 @@ namespace Lab_rab5_ImamovaAR_BPI_23_02.View
     /// <summary>
     /// Логика взаимодействия для WindowNewEmployee.xaml
     /// </summary>
+
     public partial class WindowNewEmployee : Window
     {
-        public WindowNewEmployee() { InitializeComponent(); }
-
-        private void Save_Click(object sender, RoutedEventArgs e)
+        public WindowNewEmployee()
         {
-            this.DialogResult = true;
+            InitializeComponent();
         }
 
-        private void tbBirthday_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            if (tbBirthday.Visibility == Visibility.Hidden)
-            {
-                ClBirthday.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                ClBirthday.Visibility = Visibility.Hidden;
-            }
-        }
     }
 }

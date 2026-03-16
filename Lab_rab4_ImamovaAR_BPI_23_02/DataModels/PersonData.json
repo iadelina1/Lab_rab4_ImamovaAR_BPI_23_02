@@ -1,4 +1,0 @@
-[
-  { "Id": 1, "RoleId": 1, "FirstName": "Иван", "LastName": "Иванов", "Birthday": "1990-05-12" },
-  { "Id": 2, "RoleId": 2, "FirstName": "Мария", "LastName": "Петрова", "Birthday": "1995-10-25" }
-]

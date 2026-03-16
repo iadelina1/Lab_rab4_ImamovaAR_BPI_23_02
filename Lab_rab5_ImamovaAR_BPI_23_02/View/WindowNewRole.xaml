@@ -23,7 +23,11 @@
                  VerticalContentAlignment="Center"/>
 
         <UniformGrid Columns="2" Margin="0,20,0,0">
-            <Button Content="ОК" Click="Accept_Click" Margin="5"/>
+            <Button Content="ОК" 
+            IsDefault="True"
+            Command="{Binding AcceptCommand}"
+            CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"
+            Width="100" Height="30" Margin="5"/>
             <Button Content="Отмена" IsCancel="True" Margin="5"/>
         </UniformGrid>
     </StackPanel>

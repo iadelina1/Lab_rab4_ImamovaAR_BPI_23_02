@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows;
 
-namespace Lab_rab4_ImamovaAR_BPI_23_02
+namespace Lab_rab5_ImamovaAR_BPI_23_02
 {
     public partial class App : Application
     {

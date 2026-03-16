@@ -16,14 +16,14 @@ using System.Windows.Shapes;
 namespace Lab_rab5_ImamovaAR_BPI_23_02.View
 {
     /// <summary>
-    /// Логика взаимодействия для WindowEmployee.xaml
+    /// Логика взаимодействия для WindowRole.xaml
     /// </summary>
-    public partial class WindowEmployee : Window
+    public partial class WindowRole : Window
     {
-        public WindowEmployee()
+        public WindowRole()
         {
             InitializeComponent();
-            DataContext = new Lab_rab5_ImamovaAR_BPI_23_02.ViewModel.PersonViewModel();
+            this.DataContext = new RoleViewModel();
         }
     }
 }
